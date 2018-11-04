@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="de">
+<head>
+<title></title>
+
+
+<script>
+    //Anderung :))))))git
+    var arrtest = {n:'sdfs'};
+  
+    var arr1 = [];
+    var zahler = 0;
+    
+    function eigenschaften(Obj){
+        for(var eigenschaft in Obj.prototype){
+            arr1.push(eigenschaft + ' = ' + Obj[eigenschaft] + '<br />');
+        } 
+        arr1.sort();
+        //arr Ausgeben
+        for (var index in arr1){
+             document.write(++zahler + ' ' + arr1[index]);
+        }
+ 
+    }
+    
+    eigenschaften(arrtest);  
+  
+</script>
+</head>
+<body>
+<ul id = 'ul'></ul>
+</body>
+</html>

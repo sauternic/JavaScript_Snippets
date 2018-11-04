@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Timer Class</title>
+
+	<script language="javascript" type="text/javascript">
+	<!--
+
+	// Declaring class "Timer"
+	// Es geht auch function Timer()
+    var Timer = function()
+	{
+		// Property: Frequency of elapse event of the timer in millisecond
+		this.Interval = 300;
+
+		// Property: Whether the timer is enable or not
+		this.Enable = new Boolean(false);
+
+		// Event: Timer tick
+		this.Tick;
+
+		// Member variable: Hold interval id of the timer
+		var timerId = 0;
+
+		// Member variable: Hold instance of this class
+		var thisObject;
+
+		// Function: Start the timer
+		this.Start = function()
+		{
+			this.Enable = new Boolean(true);
+
+			thisObject = this;
+			if (thisObject.Enable)
+			{
+				thisObject.timerId = setInterval( function(){thisObject.Tick();} , thisObject.Interval);
+			}
+		};
+
+		// Function: Stops the timer
+		this.Stop = function()
+		{
+			thisObject.Enable = new Boolean(false);
+			clearInterval(thisObject.timerId);
+		};
+
+	};
+
+	var index = 0;
+	var obj = new Timer();
+	obj.Tick = timer_tick;
+	obj.Start();
+
+	function timer_tick()
+	{
+		index  = index + 1;
+		document.getElementById("div1").innerHTML =index;
+
+		if (index == 10)
+		{
+			obj.Stop();
+		}
+	}
+
+	//-->
+	</script>
+
+</head>
+<body>
+<h2>via <a href="http://www.dailycoding.com/">DailyCoding.com</a></h2>
+<h1>Demo</h1>
+
+	<h2 id="div1">
+	</h2>
+<h1>Code</h1>
+<pre>
+var index = 0;
+var obj = new Timer();
+obj.Interval = 30;
+obj.Tick = timer_tick;
+obj.Start();
+
+function timer_tick()
+{
+	index  = index + 1;
+	document.getElementById("div1").innerHTML =index;
+
+	if (index == 100)
+	{
+		obj.Stop();
+	}
+}</pre>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Titel</title>
+<script language="javascript" type="text/javascript">
+    
+        //Scope Objekt
+        var Modul1 = Modul1 || {};
+        
+         Modul1.aufruf = function()
+        {
+            Modul1.x = 0;
+            Modul1.str2 = "";
+            Modul1.str = "Guten Morgen, Herr Dr. Jung! :)<br />Möchte Ihnen noch dieses Programm Zeigen, mit dem ich orginelle Grüsse Verschicken kann!<br />Bis heute Nachmittag.<br />Liebe Grüsse Nicolas Sauter : &nbsp;&nbsp;)";
+            Modul1.arr = Modul1.str.split("");
+            window.setTimeout('Modul1.aufruf2()',2000);
+        } 
+       
+       
+        Modul1.aufruf2 = function()
+        {
+            //Ausstiegs Bedingung aus function
+            if (!(Modul1.x < Modul1.arr.length))
+                return;
+            
+            Modul1.str2 += Modul1.arr[Modul1.x];
+            document.getElementById('pe').innerHTML = Modul1.str2;
+            Modul1.x++;
+            //Hier selbstaufruf, so SchleifenWirkung
+            window.setTimeout('Modul1.aufruf2()',100);
+        }
+
+   
+</script>
+</head>
+
+<body onload="Modul1.aufruf()">
+    <h1 id="pe" style="font-size:100px;" ></h1>  
+  
+  
+</body>
+</html>

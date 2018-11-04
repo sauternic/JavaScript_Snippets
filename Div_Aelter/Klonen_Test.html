@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>    
+<script language="javascript" type="text/javascript">
+    
+       
+   
+   
+   /* function Cobject1()//Konstruktorfunktion! :)
+    {
+        this.a = 1;
+        this.b = 2;
+     
+        this.clone = function()
+                     {
+                        var obj = new Object();
+                        obj.a = this.a;
+                        obj.b = this.b;
+                        return obj;
+                     }
+    };
+    var object1 = new Cobject1();  */
+   
+
+   var object1 = {a:1, b:2, clone:  function() //Literalschreibweise! :)
+                                    {  
+                                        function F(){};//Konstruktorfunktion weil mit new Aufgerufen wird!! :D
+                                        F.prototype = this;
+                                        return new F // Neue ultrawichtig!! :@
+                                    }                      
+                   }; 
+   
+   
+   //Hier wird nur der Verweis Kopiert! :(
+   //object2 = object1;
+   
+   //Object
+   
+   //Jetzt ist besser! :)
+   object2 = object1.clone();
+
+   
+   //Testen durch Aenderung des object2
+   object2.b = 1000;
+   
+   //Ausgeben:
+   alert("Objekt1: " + object1.a + " und " + object1.b);    
+   alert("Objekt2: " + object2.a + " und " + object2.b);    
+
+</script>
+
+</head>
+<body>
+    <noscript><h1>JavaScript muss aktiviert Sein! :(</h1></noscript>
+</body>
+</html>

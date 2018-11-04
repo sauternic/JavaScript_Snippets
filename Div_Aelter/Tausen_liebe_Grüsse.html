@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        var str = "";
+        var zaehlen = 1
+        var x = prompt('Bitte Namen Eingeben.', '');
+
+        if (x == null || x == "")
+            x = "Du vor dem PC! :)";
+
+        function verzoegerung() {
+
+            str += "Hallo " + x + "! ;) ";
+            var p_elem = document.getElementById('p_elem')
+
+            p_elem.innerHTML = str;
+
+
+            if (zaehlen == 1000) {
+                alert('Hallo ' + x + '\n\nDu wurdest soeben ' + zaehlen + ' mal Begrüsst! ;)\n\nMit tausend lieben Grüssen\nNicolas :    )')
+                return;
+            }
+            zaehlen++;
+            window.setTimeout('verzoegerung()', 0);
+        }
+    </script>
+</head>
+
+<body style="font-size:12px" onload="verzoegerung()">
+    <p id="p_elem">
+        <p />
+</body>
+
+</html>

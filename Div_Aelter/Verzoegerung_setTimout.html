@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Titel</title>
+<script language="javascript" type="text/javascript">
+    
+    function start_()
+    {
+        x = 1; //Global! :/
+        start();
+    }    
+        
+    
+    function start()
+    {
+        //document.getElementById('h1_').innerHTML = x;
+        document.getElementById('h1_').firstChild.nodeValue = x;
+        //document.formular.ausgabefeld.value = x;
+        //document.forms[0].elements[0].value = x;
+        if (x == 10)
+            return;
+        x++;
+        window.setTimeout('start()',100);
+    }   
+    
+</script>
+</head>
+
+<body>
+
+<h1 id="h1_">Hier wird Gez&auml;hlt</h1>
+
+<form name="formular" enctype="text/html">
+    <input type="text" name="ausgabefeld" />
+    <input type="button" onclick="start_()" value="Starten" />
+</form>
+
+
+</body>
+</html>

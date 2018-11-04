@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        'use strict';
+        window.onerror = function (e) { alert('Meine Fehlermeldung!: ' + e) };
+        window.onload = function () {
+
+        
+        var blob = new Blob(['Hali halo wie gehts denn so Blob?'])
+        var url = URL.createObjectURL(blob);
+
+        //Das File-Interface basiert auf Blob und erweitert dessen Funktionen
+        //1. Argument immer ein []
+        var file = new File([blob],'MeinFile');
+        //var file = new File(['Hali halo wie gehts denn so File?'],'MeinFile');
+        
+        var url = URL.createObjectURL(file);
+        //var url = URL.d;
+
+        //var url2 = URL.createObjectURL(new File([image/insekt.jpg],'sfd'));
+        
+        
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

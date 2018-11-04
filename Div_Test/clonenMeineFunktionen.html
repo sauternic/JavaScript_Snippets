@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <script src="../Script_js/Tief_Clonen.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            var obj1 = { name: "nicolas", alter: 49, meinObj: { name: 'versteckt' } }
+
+
+            //var obj2 = MeineFunktionen.clone(obj1);
+            //var obj2 = Object.create(obj1);
+            //var obj2 = {};
+            //obj2.__proto__ = obj1;
+            //var obj2 = obj1.constructor();
+            //var obj2 = {};
+            //var obj2 = Object.assign({}, obj1)
+            //var str1 =   JSON.stringify(obj1)
+            //var obj2 =   JSON.parse(str1);
+
+            var obj2 = obj1.clone();
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

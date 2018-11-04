@@ -1,0 +1,56 @@
+ <html>
+<head>
+  <title>Test3</title>
+
+<style>
+
+</style>
+
+<script>
+  
+     
+     function CAuto(ps, privatM, KlassenV)
+     {
+        //Klassenvariable von Aussen über CAuto Erreichbar!!!!
+        CAuto.x = KlassenV;
+        
+        //Private Member
+        var y = privatM;
+        
+        //öffentlicher Member 
+        this.ps = ps;
+     
+        
+        this.ausgeben = function()
+        {
+            
+            
+            alert('PS: ' + this.ps + ' Klassenvariable x:' + CAuto.x);
+        }
+
+     }
+    
+    
+    //Klassenvariable draussen und Oeffentlich
+    //CAuto.x = 4;
+
+    var subaru = new CAuto(300,50,1);
+    var fiat = new CAuto(100,2000,5);
+    
+    subaru.ausgeben();
+    fiat.ausgeben();
+    alert(CAuto.x);
+        CAuto.x = 1000;
+    alert(CAuto.x);
+    subaru.ausgeben();
+    fiat.ausgeben();
+</script>
+     
+</head>
+<body>
+
+  
+
+
+</body>
+</html>

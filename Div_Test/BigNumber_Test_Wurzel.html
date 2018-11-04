@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+    <meta charset="utf-8"> 
+    <script src="BigNumber_Test.js"></script>
+    <script src="BigInteger_Test.js"></script>
+    <script src="Format_Methode_Tausenderstellen.js"></script>
+    
+    <script>
+
+    window.onload = function(){
+            
+        // Der hat modulo und sqrt!
+        // var BN = new BigNumber('48954444443459366493234943535');
+        
+        // Der nicht aber remainder ist das gleiche!
+        // var BI = new BigInteger('82'); 
+        
+        // divRem gibt ein zweiteiliges Array zurück mit 'quotient and the remainder'.
+        // remainder nur Rest! -> entspricht Modulo!!!!! :))))))
+        // ausgabe.innerHTML = BI.remainder(49830);
+        
+        //BigNumber.config({ DECIMAL_PLACES: 1, ROUNDING_MODE: 4 })
+        //****************************************************************************
+        var BI = new BigInteger('34456456555555555555');
+        var BN = new BigNumber('634636363453534534534');
+       
+        
+        ausgabe.innerHTML = BI.format();
+        ausgabe2.innerHTML = BN.format();
+    }
+  
+    </script>
+</head>
+
+<body>
+    <h1>Ergebnis-Ausgabe</h1>
+
+    <h1 id="ausgabe"></h1>
+    <h1 id="ausgabe2"></h1>
+
+    <noscript><h1>JavaScript muss aktiviert Sein! :(</h1></noscript>
+</body>
+</html>

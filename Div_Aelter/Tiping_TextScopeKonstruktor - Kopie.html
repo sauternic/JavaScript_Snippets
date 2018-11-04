@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Titel</title>
+<script language="javascript" type="text/javascript">
+    
+    //Scope mit Konstruktor Funktion
+    function TipingText()
+    {
+        var x = 0;
+        var str2 = "";
+        var str = "Guten Morgen, Herr Dr. Jung! :)<br />Möchte Ihnen noch dieses Programm Zeigen, mit dem ich orginelle Grüsse Verschicken kann!<br />Bis heute Nachmittag.<br />Liebe Grüsse Nicolas Sauter : &nbsp;&nbsp;)";
+        var arr = str.split("");
+
+        
+        this.aufruf = function(TipO)
+        {
+            window.setTimeout('TipO.aufruf2(TipO)',2000);
+        }
+        
+        this.aufruf2 = function(TipO)
+        {
+            //Ausstiegs Bedingung aus function
+            if (!(x < arr.length))
+                return;
+            
+            str2 += arr[x];
+            document.getElementById('pe').innerHTML = str2;
+            x++;
+            //Hier selbstaufruf, so SchleifenWirkung
+            window.setTimeout('TipO.aufruf2()',100);
+        }
+        
+    };
+   
+   
+    function Start()                  
+    {
+        TipO = new TipingText();
+        TipO.aufruf(TipO);
+    }
+
+
+</script>
+</head>
+
+<body onload="Start()">
+    <h1 id="pe" style="font-size:100px;" ></h1>  
+  
+  
+</body>
+</html>

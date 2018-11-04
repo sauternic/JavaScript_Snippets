@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Test2</title>
+    <style>
+
+    </style>
+
+    <script>
+        'use strict';
+        window.onerror = e => alert(e);
+
+        document.addEventListener('keydown', handlerKeyEvent)
+
+        function handlerKeyEvent(event) {
+            alert(`event.key: ${event.key}
+event.code: ${event.code}
+event.keyCode: ${event.keyCode}`);
+        }
+    </script>
+</head>
+
+<body>
+
+    <form>
+
+    </form>
+</body>
+
+</html>

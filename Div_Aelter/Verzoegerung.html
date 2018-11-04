@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Titel</title>
+<script language="javascript" type="text/javascript">
+    function verzoegerung(mili)
+    {
+        function Timer()
+        {
+            var d = new Date();
+            var tim = d.getTime();
+            return tim;
+        }
+
+        var zeit = Timer()
+
+        do
+        {
+            var zeit2 = Timer();
+        } while ((zeit2 - zeit) < mili)
+    }
+
+    
+    function start()
+    {
+        
+        for(var x = 1; x < 101; x++)
+        {
+            document.formu.objtext.value = x;
+            verzoegerung(100);
+            
+            
+        }
+        return false;
+    }
+    
+
+</script>
+</head>
+
+<body>
+
+<form name="formu" enctype="text/html">
+    <input type="text" name="objtext" />
+    <input type="submit" onclick="return start()" value="Starten" />
+</form>
+
+
+</body>
+</html>

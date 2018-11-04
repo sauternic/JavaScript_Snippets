@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+    <meta charset="utf-8"> 
+    <script src="BigNumber_Test.js"></script>
+    <script src="BigInteger_Test.js"></script>
+    <script src="Format_Methode_Tausenderstellen.js"></script>
+    
+    <script>
+
+    window.onload = function(){
+        
+        
+        var str1 = "34535";
+        var str2 = new String("34535");
+    
+        var number = 101;
+        var number2 = new Number(101);
+    
+        var bol = true;
+        var bol2 = new Boolean(true);
+
+        var und = undefined;
+        var und2;
+
+        var null1 = null;
+        
+
+        var arr1 = ['Ich','bin','Nicolas'];
+        var arr2 = new Array('Ich','bin','Nicolas');
+    
+        var o1 = {};
+        var o2 = new Object();
+        
+        
+        function Katze(name){
+            this.name = name;
+        }
+        var katze1 = new Katze('Felix');
+    
+        // *****************************************
+        // 2 Methoden zur Funktionsdeklaration
+
+        function testFunc1(){
+
+        }
+    
+        var testFunc2 = function(){
+            
+        }
+    }
+
+
+        </script>
+</head>
+
+<body>
+    <h1>Ergebnis-Ausgabe</h1>
+
+    <h1 id="ausgabe"></h1>
+    <h1 id="ausgabe2"></h1>
+
+    <noscript><h1>JavaScript muss aktiviert Sein! :(</h1></noscript>
+</body>
+</html>

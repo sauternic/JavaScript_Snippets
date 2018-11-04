@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>    
+<script language="javascript" type="text/javascript">
+    
+    function CTier(a, n, t)//Konstruktorfunktion! :)
+    {
+        this.art = a;
+        this.name = n;
+        this.laut = t;
+    };
+
+    CTier.prototype.ausgeben = function()
+    {
+        alert("Tier.art-> " + this.art + "\n" + "Tier.name-> " + this.name + "\n" + "Tier.laut-> " + this.laut + "\n" + "Tier.zaehler-> " + this.zaehler);
+    };
+  
+    CTier.prototype.zaehler = 50
+    
+    
+    //main
+    Hund1 = new CTier("Hund", "Bello", "Wau!");
+    Katze1 = new CTier("Katze", "Felix", "Miau!");
+    
+    Hund1.ausgeben();
+    Katze1.ausgeben();
+
+    Hund1.zaehler = 10; //Aenderung!!! :/
+
+    Hund1.ausgeben();  // Nur hier 10 bei zaehler! :/
+    Katze1.ausgeben();
+
+</script>
+</head>
+<body>
+    
+    <noscript><h1>JavaScript muss aktiviert Sein! :(</h1></noscript>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>    
+<script language="javascript" type="text/javascript">
+    
+    function CTest()
+    {
+        this.event = new Object();    
+        this.methode_ausloesen = function()
+                                {                                     
+                                    this.event(5,10); 
+                                }
+    }
+
+    //main
+    obj1 = new CTest();
+    obj2 = new CTest();
+    
+    obj1.event = obj1_event;//Registrieren! :/
+    obj2.event = obj2_event;
+    
+    function obj1_event(arg, arg2)
+    {
+        document.getElementById("ausgabe3").innerHTML = "1: " + arg + arg2;
+    }
+
+     function obj2_event(arg, arg2)
+    {
+        document.getElementById("ausgabe3").innerHTML = "2: " + arg + arg2;
+    }
+
+</script>
+
+</head>
+<body>
+    <p style="font-size:100px;" id="ausgabe1"><a href="javascript:obj1.methode_ausloesen();">Anklicken1!</a></p>
+    <p style="font-size:100px;" id="ausgabe2"><a href="javascript:obj2.methode_ausloesen();">Anklicken2!</a></p>
+    <p style="font-size:100px;" id="ausgabe3">Ergebnis</p>
+    <noscript><h1>JavaScript muss aktiviert Sein! :(</h1></noscript>
+</body>
+</html>

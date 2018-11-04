@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Timer Class</title>
+
+	<script language="javascript" type="text/javascript">
+	
+
+	// Declaring class "Timer"
+	// Es geht auch function Timer()
+    var Timer = function()
+	{
+		this.Interval = 300;
+		this.Enable = new Boolean(false);
+		
+        // Event: Timer tick
+		this.Tick;
+		
+		//Private fields! :/
+        var timerId = 0;
+		var self;
+
+		// Function: Start the timer
+		this.Start = function()
+		{
+			Enable = new Boolean(true);
+            self = this;
+            
+			if (self.Enable)
+			{
+				self.timerId = setInterval( function(){self.Tick("Nicolas")}, self.Interval);
+        
+    
+			}
+		};
+
+		// Function: Stops the timer
+		this.Stop = function()
+		{
+			self.Enable = new Boolean(false);
+			clearInterval(self.timerId);
+		};
+
+	};
+//***********************************************************************************************
+	function main()
+	{
+        index = 0;
+    	
+        obj = new Timer();
+        obj.Start(); 
+        
+        obj.Tick = timer_tick;//Registrieren! :/
+    }
+    
+    function timer_tick(arg)
+	{ 
+        
+        
+        index  = index + 1;
+        document.getElementById("div1").innerHTML =  index + " " + arg; // Oder->.firstChild.nodeValue
+
+		if (index == 10)
+		{
+			obj.Stop();
+		}
+	}
+
+	//-->
+	</script>
+
+</head>
+<body>
+<h2>via <a href="http://www.dailycoding.com/">DailyCoding.com</a></h2>
+
+<h1><a href="javascript:main();">Demo Starten</a></h1>
+
+<h2 id="div1"></h2>
+	
+<h1>Code</h1>
+
+</body>
+</html>

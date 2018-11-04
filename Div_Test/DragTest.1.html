@@ -1,0 +1,60 @@
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test2</title>
+    <style>
+        #leftBox1 {
+            float: left;
+            margin: 10px;
+            width: 400px;
+            height: 300px;
+            border: 3px solid blue;
+        }
+
+        #rightBox1 {
+            float: left;
+            margin: 10px;
+            width: 400px;
+            height: 300px;
+            border: 3px solid red;
+        }
+    </style>
+
+    <script>
+        'use strict';
+        window.onerror = e => alert(e);
+
+        function geladen() {
+            //Feuert wie verückt!!
+            leftBox1.ondragover = function (e) {
+                console.log('dragover')
+                e.preventDefault()
+            };
+            insekt1.ondragstart = function (e) {
+                console.log('dragstart')
+                e.dataTransfer.setData('ElemInsekt', e.target.outerHTML);
+            };
+            leftBox1.ondrop = function (e) {
+                console.log('drop')
+                leftBox1.innerHTML = e.dataTransfer.getData('ElemInsekt');
+            };
+        }
+
+    </script>
+</head>
+
+<body onload="geladen()">
+
+    <div id="leftBox1">
+        Bild hierher!
+    </div>
+
+    <div id="rightBox1">
+        <img id="insekt1" src="image/insekt.jpg" />
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title>Test1</title>
+
+<script>
+    //Vererben
+    Auto.prototype =  {raeder: 4, gewicht: 1300 };
+         //Irgend ne Eigenschaft Anh�ngen!!
+    Auto.prototype.i =  9;
+
+   //Kann tief Kopieren Arrays und Objekte!!
+    var MeineFunktionen = {}; //Namespace
+    MeineFunktionen.clone = function(o)
+    {
+        //Neues Objekt Erzeugen
+        if (o instanceof Array)//Array und Object sind instanceof Object
+            var newObj = [];   //Aber nur Array ist instanceof Array!
+        else
+            var newObj = {};
+
+        for (var eigens in o)
+        {
+            //Object und Array werden durch '!' oder '!=' als false ausgewertet so das else Teil
+            if(typeof o[eigens] != 'object')
+          //if(!((o[eigens]) instanceof Object))
+            {
+                //Eigenschaften Kopieren von alt zu neuem Objekt bzw. Array
+                //alert ('eigens: ' + eigens + '\no[eigens]: ' + o[eigens] );
+                newObj[eigens] = o[eigens];
+            }
+            else
+            {
+                //Rekursives tiefes Kopieren
+                //alert ('eigens: ' + eigens + '\no[eigens]: ' + o[eigens] );
+                newObj[eigens] = MeineFunktionen.clone(o[eigens]);
+            }
+        }
+        return newObj;
+    }
+
+    function Auto(tueren, marke, motor)
+    {
+        //Einbetten
+        this.motor = motor;
+        this.tueren = tueren;
+        this.marke = marke;
+    
+    }
+
+    var Auto1 = new Auto(2,'subaru', {ps : 300});
+    
+    var AutoKlon = MeineFunktionen.clone(Auto1);
+    
+    AutoKlon.motor.ps = 50;
+    
+    alert(Auto1.motor.ps);
+    alert(AutoKlon.motor.ps);
+
+</script>
+     
+</head>
+<body>
+     
+
+</body>
+</html>

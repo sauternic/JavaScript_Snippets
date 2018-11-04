@@ -1,0 +1,61 @@
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test2</title>
+    <style>
+        #leftBox1 {
+            float: left;
+            margin: 10px;
+            width: 400px;
+            height: 300px;
+            border: 3px solid blue;
+        }
+
+        #rightBox1 {
+            float: left;
+            margin: 10px;
+            width: 400px;
+            height: 300px;
+            border: 3px solid red;
+        }
+    </style>
+
+    <script>
+        'use strict';
+        window.onerror = e => alert(e);
+
+        function geladen() {
+            insekt1.addEventListener('dragstart', started, false)
+            
+            leftBox1.addEventListener('dragstart', started, false);
+            leftBox1.addEventListener('dragover', function(e){ e.preventDefault() } , true);//Sonst kein dropen möglich
+            leftBox1.addEventListener('drop', dropped, false);
+        }
+
+        function started(e) {
+            e.dataTransfer.setData('ElemInsekt', e.target.outerHTML)
+        }
+
+        function dropped(e) {
+            var str = e.dataTransfer.getData('ElemInsekt');
+            leftBox1.innerHTML = str;
+        }
+
+    </script>
+</head>
+
+<body onload="geladen()">
+
+    <div id="leftBox1">
+        Bild hierher!
+    </div>
+
+    <div id="rightBox1">
+        <img id="insekt1" src="image/insekt.jpg" />
+    </div>
+
+
+</body>
+
+</html>

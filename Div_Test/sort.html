@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TestDebugg_2</title>
+<script type="text/javascript">
+
+ Object.prototype.toString = function()
+ {
+    for (name in this)
+    return name + ': ' + this[name] +'\n';
+ };
+
+// Vergleichsfunktion
+function deVscending(a, b) 
+{
+  
+  if (a.wert < b.wert)
+  {
+    return -1;
+  }
+ 
+  if (a.wert > b.wert)
+  {
+    return 1;
+  }
+ 
+  return 0; 
+}
+  
+
+var zahlen = [{wert: 101},{wert: 400},{wert: 300},{wert: 1000},{wert: 5000},{wert: 6000}]; 
+
+zahlen.sort(descending); 
+ 
+alert(zahlen.join(''));  
+
+</script>
+</head>
+
+<body>
+</body>
+</html>
