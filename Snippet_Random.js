@@ -5,4 +5,6 @@ function rand(min, max) {
 }
 
 //Teständerung in Fork
-//Noch ein Test für Pull Request! :)
+//Noch ein Test für Pull Request! 
+
+// To wei
