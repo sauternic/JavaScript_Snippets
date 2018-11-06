@@ -6,3 +6,5 @@ function rand(min, max) {
 
 //Teständerung in Fork
 //Noch ein Test für Pull Request! :)
+
+//Test auf mein sauternic Konto
