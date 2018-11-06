@@ -8,3 +8,4 @@ function rand(min, max) {
 //Noch ein Test für Pull Request! :)
 
 //Test auf mein sauternic Konto
+//Pull Test mit Zwei-Faktor-Auth
