@@ -4,7 +4,4 @@ function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//Teständerung in Fork
-//Noch ein Test für Pull Request! 
-
-// To wei
+//Alles weg
