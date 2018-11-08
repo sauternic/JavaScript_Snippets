@@ -5,4 +5,5 @@ function rand(min, max) {
 }
 
 //Alles weg
+//Aber Pixi das möchte ich noch gerne so! :)
 
