@@ -5,3 +5,4 @@ function rand(min, max) {
 }
 
 //Alles weg
+
