@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        'use strict';
+        window.onerror = function (e) { alert('Meine Fehlermeldung!: ' + e) };
+        window.onload = function () {
+
+            //Alle EventListener:
+            h1_1.addEventListener('click', ausführen);
+            h1_2.addEventListener('click', ausführen);
+            h1_3.addEventListener('click', ausführen);
+            window.addEventListener('popstate', event_popstate)
+
+            //Zuerst Zustand speichern:
+            //history.replaceState({ inhalt: document.body.innerHTML }, "Titel");
+
+
+            //Alle Event Handler:
+            function ausführen() {
+
+
+                //Simuliert Ajax Eintrag ohne neuladen der Seite!
+                this.textContent = "Mal schauen! :)"
+
+                //Neuer History Eintrag mit neuen wiederherstellen Werten
+                history.pushState({ inhalt: document.body.innerHTML }, "Title");
+
+            }
+
+            function event_popstate(arg) {
+                if (arg.state) {
+                    document.body.innerHTML = arg.state.inhalt;
+                } else {
+                    location.reload();
+                }
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1 id="h1_1">Dieser Eintrag wird beim klicken geändert</h1>
+    <h1 id="h1_2">Dieser Eintrag wird beim klicken geändert</h1>
+    <h1 id="h1_3">Dieser Eintrag wird beim klicken geändert</h1>
+</body>
+
+</html>

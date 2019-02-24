@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+    <title>Div Punkte</title>
+    
+    <style>
+        #zeichnen /*Zeichnen-Container Positionieren*/
+        {
+            position: relative;
+            top: 20px;
+            left: 20px;                           
+            height: 1000px;
+            width: 1000px;
+            background-color: #00FFFF;
+            overflow: auto;
+        }
+    </style>
+    
+    <script language="JavaScript">
+        
+        
+        
+        function punkt(Punkt_X, Punkt_Y, farbe)
+    	{    
+            var zeichnen = document.getElementById('zeichnen')
+            //Erzeugen eines Div-Punktes
+            var DivObj = document.createElement('div');
+    		//Alle style Eigenschaften des Div-Punktes Einstellen
+            DivObj.style.backgroundColor = farbe;
+            DivObj.style.left = Punkt_X + 'px';
+    		DivObj.style.top = Punkt_Y + 'px';
+    		//Konstante Werte! :/
+            DivObj.style.cssFloat = "left";
+            DivObj.style.position = "relative"
+            DivObj.style.width = "10px";
+    		DivObj.style.height = "10px";
+            //DivObj in zeichnen-div-Container Einhängen
+            zeichnen.appendChild(DivObj);
+            
+        }
+ //********************************************************************************          
+         
+                var i = 0;
+                var Punkt_X = 0;
+                var Punkt_Y = 0;
+                var Mittelpunkt_X = 300;
+                var Mittelpunkt_Y = 300;
+                var Radius_width = 300;
+                var Radius_height = 300;
+        function aufruf()
+        {
+            i ++ ;
+            Punkt_X +=2;
+            Punkt_Y+=2;
+            punkt(Punkt_X, Punkt_Y, "blue");
+            if (i > 1000) return;
+            window.setTimeout('aufruf()',0)
+        }
+        
+        function loeschen()
+        {
+            var zeichnen = document.getElementById('zeichnen').childNodes[0];
+                           document.getElementById('zeichnen').removeChild(zeichnen);
+            window.setTimeout('loeschen()',0)
+        }
+    
+    
+    </script>
+</head>
+
+<body>
+
+    <form>
+        <input type="button" onclick="aufruf()" value="start" />
+        <input type="button" onclick="loeschen()" value="l&ouml;schen" />
+    </form>
+    
+    <div id="zeichnen"></div>
+
+</body>
+</html>

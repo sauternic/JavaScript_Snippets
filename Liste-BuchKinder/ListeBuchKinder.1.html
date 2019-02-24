@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        
+      window.onload = function(){  
+        
+        button1.addEventListener('click', einfügen, false);
+      
+        function einfügen(){
+            var text1E = document.querySelector('#text1');
+            var ausgabe1E = document.querySelector('#ausgabe1');
+            
+            var divE = document.createElement('div');
+            divE.innerHTML = text1E.value;
+            ausgabe1E.appendChild(divE);
+        }
+    
+    
+    
+    }
+
+    </script>
+</head>
+
+<body>
+    <h1>Ergebnis-Ausgabe</h1>
+
+    <input id="text1" type="text"></input>
+    <br>
+    <input id="button1" type="button" value="Einfügen"></input>
+
+    <div id="ausgabe1"></div>
+
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

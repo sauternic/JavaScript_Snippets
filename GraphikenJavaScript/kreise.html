@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+    <title>Div Punkte</title>
+    
+    <style>
+        #zeichnen /*Zeichnen-Container Positionieren*/
+        {
+            position: relative;
+            top: 20px;
+            left: 20px;                           
+            height: 1000px;
+            width: 1000px;
+            background-color: #00ffff;
+            overflow: auto;
+        }
+    </style>
+    
+    <script language="JavaScript">
+        
+        
+        function punkt(Punkt_X, Punkt_Y, farbe)
+    	{  
+            //Erzeugen eines Div-Punktes
+            var DivObj = document.createElement('div');
+    		//Alle style Eigenschaften des Div-Punktes Einstellen
+            DivObj.style.backgroundColor = farbe;
+    		DivObj.style.left = Punkt_X + 'px';
+    		DivObj.style.top = Punkt_Y + 'px';
+    		//Konstante Werte! :/
+            DivObj.style.position="absolute";
+            DivObj.style.width = "10px";
+    		DivObj.style.height= "10px";
+            //DivObj in zeichnen-div-Container Einhängen
+            var Div_zeich = document.getElementById('zeichnen').appendChild(DivObj);
+    	}
+    	   
+           
+          
+           var Punkt_X;
+    	   var Punkt_Y;
+    	   var Mittelpunkt_X = 300;
+    	   var Mittelpunkt_Y = 300;
+           var Radius_width = 300;
+           var Radius_height = 300;
+           var iii = 0.005; 
+           var zeit = 50;
+        function aufruf()
+        {
+            
+            
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + Radius_height * Math.sin(i));      
+            punkt(Punkt_X, Punkt_Y, "red");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf()',zeit)   
+        }
+        function aufruf2()
+        {
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 40 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "#00FF00");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf2()',zeit)
+        }
+         function aufruf3()
+        {
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 80 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "blue");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf3()',zeit)
+        }
+         function aufruf4()
+        {
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 120 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "#FF00FF");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf4()',zeit)
+        }
+     
+     
+      function aufruf5()
+        {
+
+
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 160 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "red");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf5()',zeit)
+        }
+        function aufruf6()
+        {
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 200 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "yellow");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf6()',zeit)
+        }
+         function aufruf7()
+        {
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 240 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "blue");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf7()',zeit)
+        }
+         function aufruf8()
+        {
+            i += iii  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(Mittelpunkt_Y + 280 + Radius_height * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "green");
+            if (i > 6.3) return;
+            window.setTimeout('aufruf8()',zeit)
+        }
+       //*******************************************************************************  
+         
+         function Elypse_()
+        {
+            i += 0.05  ;
+            Punkt_X = Math.round(Mittelpunkt_X + Radius_width * Math.cos(i));
+            Punkt_Y = Math.round(440 + 100 * Math.sin(i));
+            punkt(Punkt_X, Punkt_Y, "yellow");
+            if (i > 6.3) return;
+            window.setTimeout('Elypse_()',10)
+        }
+        
+        //*******************************************************************************  
+        
+        function loeschen()
+        {
+            var zeichnen = document.getElementById('zeichnen').childNodes[0];
+                           document.getElementById('zeichnen').removeChild(zeichnen);
+            if (document.getElementById('zeichnen').childNodes.length == 0)
+                return;
+            window.setTimeout('loeschen()',0)
+        }
+       
+        //*******************************************************************************  
+        
+        function Elypse()
+        {
+            i = 0;
+            Elypse_();
+        }
+        function verteiler()
+        {
+            i = 0; //Zählvariable Nullen!
+            aufruf();
+            aufruf2();
+            aufruf3();
+            aufruf4();
+            aufruf5();
+            aufruf6();
+            aufruf7();
+            aufruf8();
+        }
+    </script>
+</head>
+
+<body>
+
+    <form>
+        <input type="button" onclick="verteiler()" value="Kreise Zeichnen" />
+        <input type="button" onclick="Elypse()" value="Elypse Zeichnen" />
+        <input type="button" onclick="loeschen()" value="l&ouml;schen" />
+    </form>
+    
+    <noscript><h1>JavaScript muss Eingeschalten sein,<br />sonst gehts nicht!! :(</h1></noscript>
+    <div id="zeichnen"></div>
+    
+
+</body>
+</html>

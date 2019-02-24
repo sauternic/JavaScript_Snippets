@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+
+        window.onload = function () {
+
+            var inputArray = document.querySelectorAll('form input');
+            inputArray[1].addEventListener('click', einfügen, false);
+
+            function einfügen() {
+                var textElement = document.querySelector('input');
+                var ausgabe1Element = document.querySelector('div');
+
+                var divElement = document.createElement('div');
+                divElement.innerHTML = textElement.value;
+                ausgabe1Element.appendChild(divElement);
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Ergebnis-Ausgabe</h1>
+
+    <form>
+        <input type="text">
+        <br>
+        <input type="button" value="Einfügen">
+        <div></div>
+    </form>
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

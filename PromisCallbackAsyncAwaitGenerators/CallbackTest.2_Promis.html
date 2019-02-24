@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+
+        window.onload = function () {
+
+            function asynFunktion1() {
+                var promis = new Promise((resolved) => {
+                    setTimeout(() => resolved('fertig1'), Math.random() * 3000);
+                })
+                return promis;
+            }
+            function asynFunktion2() {
+                var promis = new Promise((resolved) => {
+                    setTimeout(() => resolved('fertig2'), Math.random() * 3000);
+                })
+                return promis;
+            }
+            function asynFunktion3() {
+                var promis = new Promise((resolved) => {
+                    setTimeout(() => resolved('fertig3'), Math.random() * 3000);
+                })
+                return promis;
+            }
+
+
+            asynFunktion1()
+                .then((fulfilled) => { console.log(fulfilled); return asynFunktion2() })
+                .then((fulfilled) => { console.log(fulfilled); return asynFunktion3() })
+                .then((fulfilled) => { console.log(fulfilled); })
+
+                console.log('Wenn diese Meldung zuerst kommt wird nicht blockiert! :)');
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

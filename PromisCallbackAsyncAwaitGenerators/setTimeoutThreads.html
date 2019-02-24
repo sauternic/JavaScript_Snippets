@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+
+        window.onload = function () {
+
+            function ausgabe1(x) {
+                for(let x = 0; x <50000000; x++){
+                    x;
+                }
+                console.log(x);
+            }
+            function ausgabe2() {
+                console.log('aus2');
+            }
+            function ausgabe3() {
+                console.log('aus3');
+            }
+
+            setTimeout(ausgabe1,0,'ausgabe1');
+            setTimeout(ausgabe2,0);
+            setTimeout(ausgabe3,0);
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

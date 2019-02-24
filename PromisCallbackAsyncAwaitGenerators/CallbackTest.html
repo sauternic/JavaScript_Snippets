@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+
+        window.onload = function () {
+
+            function asynFunktion1(callback) {
+                setTimeout(() => callback('fertig1'), Math.random() * 3000);
+            }
+            function asynFunktion2(callback) {
+                setTimeout(() => callback('fertig2'), Math.random() * 3000);
+            }
+            function asynFunktion3(callback) {
+                setTimeout(() => callback('fertig3'), Math.random() * 3000);
+            }
+
+            // Ergebnisse kommen in zufälliger Reihenfolge
+            asynFunktion1((arg)=>{console.log(arg)});
+            asynFunktion2((arg)=>{console.log(arg)});
+            asynFunktion3((arg)=>{console.log(arg)});
+
+            console.log('Wenn diese Meldung zuerst kommt wird nicht blockiert! :)');
+        
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+    <noscript>
+        <h1>JavaScript muss aktiviert Sein! :(</h1>
+    </noscript>
+</body>
+
+</html>

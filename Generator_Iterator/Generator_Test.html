@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        'use strict';
+        window.onerror = function (e) { alert('Meine Fehlermeldung!: ' + e) };
+        window.onload = function () {
+
+            button1.addEventListener('click', starten)
+
+
+            function* zählen() {
+                for (var i = 0; i < 3; i++) {
+                    yield i;
+                }
+            }
+
+            var generator = zählen();
+
+            function starten() {
+                var wert;
+                //Entspricht einem for (xxx of yyyy) 
+                while (true) {
+                    wert = generator.next();
+                    //wenn  'done = true'  dann 'value' immer undefined
+                    //done -> 'Erledigt' ja bzw.true
+                    if (wert.done)
+                        break;
+                    console.log(wert.value);
+                }
+
+                for (const iterator of zählen()) {
+                    console.log(iterator);
+                }
+
+            }
+
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" id="button1" value="Start">
+</body>
+
+</html>
