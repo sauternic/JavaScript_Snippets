@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        window.onload = function () {
+            
+            //Wird nur Ausgeben weil Schleife Ausgelagert!
+            ausgabe1.textContent = 'Auf das Ergebnis warten';
+            
+            
+            var worker = new Worker('doWork2.js');
+            //Empfangen per Event-Handler von postMessage des Worker (doWork.js) Threads! :))))
+            worker.onmessage = function (arg) {
+                ausgabe1.textContent = arg.data;
+                worker.terminate();
+                worker = null;
+            };
+            //Startet den Worker mit zeitintensiver Berechnung (doWork.js) Thread!
+            worker.postMessage('');
+            
+           
+
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1 id="ausgabe1"></h1>
+</body>
+
+</html>

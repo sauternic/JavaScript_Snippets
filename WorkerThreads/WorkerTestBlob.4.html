@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+
+    <script id="doWork4_1">
+        //Empfangen von postMessage des UI Threads
+        this.onmessage = function (arg) {
+            this.postMessage(arg.data);
+        };
+    </script>
+
+    <script>
+
+        var str = document.querySelector('#doWork4_1').textContent;
+
+        //Inhalt als String eingebeben (den Inhalt der doWork Datei)! :)
+
+        //var worker = new Worker(URL_Worker);
+        var worker = new Worker(URL.createObjectURL(new Blob([str])));
+
+        //Empfangen von postMessage doWork.js Threads! :))))
+        worker.onmessage = function (arg) {
+            console.log(arg.data);
+        };
+
+        //Senden an den Worker (doWork.js) Thread!
+        worker.postMessage('Wird sofort zurückgeschickt');
+
+        //Worker Beenden
+        //worker.terminate();
+        //worker = null;
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

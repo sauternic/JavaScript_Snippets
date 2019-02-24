@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        var worker = new Worker('doWork1.js');
+
+        //Empfangen per Event-Handler von postMessage doWork.js Threads! :))))
+        worker.onmessage = function (arg) {
+            console.log(arg.data);
+        };
+
+        //Startet den Worker (doWork.js) Thread!
+        worker.postMessage('');
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

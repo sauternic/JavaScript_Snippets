@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        
+       
+        function worker_function() {
+            //Code der doWork Datei aber hier!!! :))))
+            this.onmessage = function (arg) {
+                this.postMessage(arg.data);
+            }
+        }
+        
+        
+        //Jeder einzelne Schritt in Variable!
+        var str = worker_function.toString();
+        var str2 = "(" + str + ")()"
+        var blob = new Blob([str2], { type: 'text/javascript' });
+        var URL_Worker = URL.createObjectURL(blob);
+        
+        
+        var worker = new Worker(URL_Worker);
+        
+        
+        //Empfangen von postMessage doWork.js Threads! :))))
+        worker.onmessage = function (arg) {
+            console.log(arg.data);
+        };
+
+        //Senden an den Worker (doWork.js) Thread!
+        worker.postMessage('Wird sofort zurückgeschickt');
+
+        //Worker Beenden
+        //worker.terminate();
+        //worker = null;
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

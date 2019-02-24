@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <script>
+        
+
+        
+        
+        function worker_function() {
+            //Code der doWork Datei aber hier!!! :))))
+            this.onmessage = function (arg) {
+                this.postMessage(arg.data);
+            }
+            // all code here } 
+            // This is in case of normal worker start 
+            // "window" is not defined in web worker 
+            // so if you load this file directly using `new Worker` 
+            // the worker code will still execute properly if(window!=self) worker_function();
+        }
+        
+        
+        var worker = new Worker(URL.createObjectURL(new Blob(["(" + worker_function.toString() + ")()"], { type: 'text/javascript' })));
+
+        
+        //Empfangen von postMessage doWork.js Threads! :))))
+        worker.onmessage = function (arg) {
+            console.log(arg.data);
+        };
+
+        //Senden an den Worker (doWork.js) Thread!
+        worker.postMessage('Wird sofort zurückgeschickt');
+
+        //Worker Beenden
+        //worker.terminate();
+        //worker = null;
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
